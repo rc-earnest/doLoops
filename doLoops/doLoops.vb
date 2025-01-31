@@ -6,6 +6,7 @@ Module doLoops
 
     Sub Main()
         Dim firstNumber As Integer
+        Dim secondNumber As Integer
         Dim userInput As String
 
         'Do
@@ -37,18 +38,47 @@ Module doLoops
         'Loop
 
         Do
-            Console.WriteLine("Enter a number")
-            Console.WriteLine("Enter Q to quit")
-            userInput = Console.ReadLine()
-            Console.WriteLine($"you entered {userInput}")
+            Do
+                Console.WriteLine("Enter the first number")
+                Console.WriteLine("Enter Q to quit")
+                userInput = Console.ReadLine()
+                Console.WriteLine($"you entered ""{userInput}""")
 
-            Try
-                firstNumber = CInt(userInput)
-            Catch ex As Exception
-                If userInput <> "Q" Then
-                    Console.WriteLine($"{userInput} Is not a whole number!")
-                End If
-            End Try
+                Try
+                    firstNumber = CInt(userInput)
+                    Exit Do
+                Catch ex As Exception
+                    If userInput <> "Q" Then
+                        Console.WriteLine($"{userInput} Is not a whole number!")
+                    Else
+                        Console.WriteLine($"You entered {userInput}, have a nice day!")
+                        Exit Sub
+                    End If
+                End Try
+                Console.WriteLine(StrDup(80, "*"))
+                Console.WriteLine()
+            Loop
+            Console.WriteLine()
+            Do
+                Console.WriteLine("Enter the first number")
+                Console.WriteLine("Enter Q to quit")
+                userInput = Console.ReadLine()
+                Console.WriteLine($"you entered ""{userInput}""")
+
+                Try
+                    secondNumber = CInt(userInput)
+                    Exit Do
+                Catch ex As Exception
+                    If userInput <> "Q" Then
+                        Console.WriteLine($"{userInput} Is not a whole number!")
+                    Else
+                        Console.WriteLine($"You entered {userInput}, have a nice day!")
+                        Exit Sub
+                    End If
+                End Try
+                Console.WriteLine(StrDup(80, "*"))
+                Console.WriteLine()
+            Loop
 
 
 
@@ -58,9 +88,6 @@ Module doLoops
 
 
 
-
-
-            Console.Clear()
         Loop While userInput <> "Q"
     End Sub
 
